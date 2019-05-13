@@ -4843,17 +4843,8 @@ function Video(videoElement, canvas) { // jshint ignore:line
         */
         videoStream = newVideoStream;
 
-        if( navigator.mozGetUserMedia) {
-            //console.log('mozilla');
-            videoElement.mozSrcObject = videoStream;
+		videoElement.srcObject = videoStream;
 
-        } else {
-            //console.log('not mozilla');
-            videoElement.src = (
-                        window.URL &&
-                        window.URL.createObjectURL(videoStream)
-                    ) || videoStream;
-        }
         //console.log('video success');
         videoElement.play();
         //console.log(canvas.width);
